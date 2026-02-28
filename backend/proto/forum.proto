@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package forum;
+
+option go_package = "github.com/kimierik/hggp/backend/proto;proto";
+import "google/api/annotations.proto";
+
+
+service ForumService {
+  rpc PostMessage(PostRequest) returns (PostResponse){
+    option (google.api.http) = {
+      post: "/v1/post_message"
+      body: "*"
+    };
+  }
+
+  rpc GetMessages(GetMessagesRequest) returns (MessagesResponse){
+    option (google.api.http) = {
+      post: "/v1/get_message"
+      body: "*"
+    };
+  }
+}
+
+message PostRequest {
+  string author = 1;
+  string message = 2;
+}
+
+message PostResponse {
+  string id = 1;
+  string author = 2;
+  string message = 3;
+  string timestamp = 4;
+  bool success = 5;
+}
+
+message GetMessagesRequest {
+  int32 limit = 1;
+}
+
+message Message {
+  string id = 1;
+  string author = 2;
+  string message = 3;
+  string timestamp = 4;
+}
+
+message MessagesResponse {
+  repeated Message messages = 1;
+}

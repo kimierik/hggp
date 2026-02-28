@@ -1,0 +1,22 @@
+{{template "incs.html"}}
+<body>
+    <div class="container">
+        <h1>💬 forum</h1>
+        
+        <div class="post-form">
+            <form 
+                hx-post="http://localhost:8000/v1/post_message" 
+                hx-target="#posts" 
+                hx-ext="json-enc, format-response" 
+                hx-swap="beforeend">
+                <textarea name="message" placeholder="What's on your mind?" required></textarea>
+                <input type="text" name="author" placeholder="Your name" required class="post-input">
+                <button type="submit" hx-indicator=".loading">Post Message</button>
+            </form>
+        </div>
+        
+        <div class="posts" id="posts">
+            <!-- Messages will appear here -->
+        </div>
+    </div>
+</body>

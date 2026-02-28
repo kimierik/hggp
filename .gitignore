@@ -1,0 +1,5 @@
+*.note
+*.sum
+backend/build
+frontend/build
+*.pb.*go

@@ -1,0 +1,24 @@
+protoc \
+  --go_out=. \
+  --go_opt=module=github.com/kimierik/hggp/backend \
+  --go-grpc_out=. \
+  --go-grpc_opt=module=github.com/kimierik/hggp/backend \
+  proto/forum.proto
+
+
+
+
+
+
+  # gRPC server code
+protoc -I . \
+  -I $GOPATH/pkg/mod/github.com/grpc-ecosystem/grpc-gateway/v2@*/third_party/googleapis \
+  --go_out . --go-grpc_out . \
+  service.proto
+
+# grpc-gateway code (HTTP reverse proxy)
+protoc -I .\
+  -I $GOPATH/pkg/mod/github.com/grpc-ecosystem/grpc-gateway\@v1.16.0/third_party/googleapis/ \
+  --grpc-gateway_out . \
+  --grpc-gateway_opt=module=github.com/kimierik/http/backend \
+  proto/forum.proto
