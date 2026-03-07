@@ -6,7 +6,11 @@ htmx.defineExtension('format-response', {
         }
 }});
 
-function formatContent(html) {
-    return `<div class="formatted">${html}</div>`;
+function formatContent(obj) {
+    obj = JSON.parse(obj)
+    return `
+        <div class="formatted-message border p-1">
+            <p class="border-bottom">name: ${obj.author}</p>
+            <p>${obj.message}</p>
+        </div>`;
 }
-

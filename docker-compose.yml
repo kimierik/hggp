@@ -13,8 +13,9 @@ services:
       - ./frontend/static:/app/static
       - ./frontend/templates:/app/templates
 
-
   backend:
+    environment:
+      DB_ADDRESS: postgres-db
     build:
       context: ./backend
       dockerfile: Dockerfile
@@ -23,6 +24,18 @@ services:
       - "8000:8000"
     networks:
       - app-network
+
+  postgres-db:
+    image: postgres:latest
+    environment:
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres_init:/docker-entrypoint-initdb.d
+    networks:
+      - app-network
+
 
 networks:
   app-network:

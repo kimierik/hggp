@@ -3,6 +3,13 @@
     <div class="container">
         <h1>💬 forum</h1>
         
+        <button hx-post="http://localhost:8000/v1/get_message"
+                hx-trigger="click"
+                hx-ext="json-enc" 
+                hx-swap="outerHTML">
+            Click Me!
+        </button>
+
         <div class="post-form">
             <form 
                 hx-post="http://localhost:8000/v1/post_message" 

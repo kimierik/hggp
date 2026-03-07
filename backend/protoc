@@ -8,8 +8,6 @@ protoc \
 
 
 
-
-
   # gRPC server code
 protoc -I . \
   -I $GOPATH/pkg/mod/github.com/grpc-ecosystem/grpc-gateway/v2@*/third_party/googleapis \

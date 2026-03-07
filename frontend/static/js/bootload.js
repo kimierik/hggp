@@ -7,14 +7,16 @@ window.GoReady = (async () => {
     go.run(result.instance);
 })();
 
+/*
 async function f(){
     await window.GoReady
-    App.renderTemplate("foba", {"item":"another", "foobar":124})
+    let a =App.renderTemplate("foba", {"item":"another", "foobar":124})
 
-    let a =App.renderTemplate("fobba")
+    //let a =App.renderTemplate("fobba")
     if (a instanceof Error){
+        console.log("render template",a)
         throw(a)
     }
 }
 f()
-
+ * */
