@@ -20,7 +20,6 @@ func renderTemplate(this js.Value, args []js.Value) interface{} {
 	)
 	if len(args)<=1{
 		err := js.Global().Get("Error").New("No arguments provided")
-        // Panic with the JS Error
 		return err
 
 	}
