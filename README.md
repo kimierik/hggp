@@ -1,5 +1,5 @@
 
-# concentp
+# concept
 This is more of a test/learning thing for these technologies so this is not an actual project now.
 More of a proof of concept and a thing that lets me know about the different usecases.
 Completely unfinished and unpolished and i will probably not make attempts to fix it, since it has served its purpoise to me.
